@@ -60,17 +60,18 @@ router.post('/login', (req, res) => {
             if(!samePwd){
                 res.status(500).send('Wrong password');
             } else {
-                jwt.sign({result}), process.event.SECRET_KEY, (err, token) => {
+                console.log(result)
+                jwt.sign({result}, process.env.JWT_KEY, (err, token) => {
                     res.json({token});
-                };
+                });
             };
         };
     });
 });
 
-// got to profile patient
+// go to profile patient
 router.post('/profile', verifyToken, (req, res) => {
-    jwt.verify(req.token, process.env.SECRET_KEY, (err, authdata) => {
+    jwt.verify(req.token, process.env.JWT_KEY, (err, authdata) => {
         if (err) {
             res.status(403).send(err);
         } else {
