@@ -44,7 +44,7 @@ router.delete('/:id', (req, res) => {
   });
 
 // Get all exam for one user
-router.get("/:id/exam", (req, res) => {
+router.get("/:id/exams", (req, res) => {
 	const idExam = req.params.id;
 	let sql = 'SELECT * FROM user_has_exam AS ue JOIN user AS u ON ue.user_id = u.id JOIN exam AS e ON ue.exam_id = e.id WHERE u.id = ?'
 	db.query(sql, [idExam], (err, results) => {
@@ -61,7 +61,7 @@ router.get("/:id/exam", (req, res) => {
   });
 
 //Get one exam for one user
-router.get('/:idUser/exam/:idExam', (req, res) => {
+router.get('/:idUser/exams/:idExam', (req, res) => {
 	const idUser = req.params.idUser;
 	const idExam = req.params.idExam;
 	let sql = 'SELECT * FROM user_has_exam AS ue JOIN user AS u ON ue.user_id = u.id JOIN exam AS e ON ue.exam_id = e.id WHERE u.id = ? AND e.id = ?'
