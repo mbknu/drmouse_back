@@ -1,0 +1,8 @@
+;###Get
+GET http://localhost:3000/api/users
+###Get
+GET http://localhost:3000/api/users/1
+###Get
+GET http://localhost:3000/api/users/1/exam/
+###Get
+GET http://localhost:3000/api/users/1/exam/1

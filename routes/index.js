@@ -1,12 +1,14 @@
 const express = require("express");
-const user = require('./user');
-const doctor = require('./doctor');
-const exam = require('./exam');
+const users = require('./users');
+const doctors = require('./doctors');
+const exams = require('./exams');
+const auth = require('./auth');
 
 const router = express.Router();
 
-router.use('/user', user);
-router.use('/doctor', doctor);
-router.use('/exam', exam);
+router.use('/users', users);
+router.use('/doctors', doctors);
+router.use('/exams', exams);
+router.use('/auth', auth);
 
 module.exports = router;
