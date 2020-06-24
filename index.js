@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const api = require("./routes");
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT || 3000;
 const cors = require("cors");
 app.use(cors());
 
@@ -15,5 +15,5 @@ app.listen(port, (err) => {
   if (err) {
     throw new Error("There is an error");
   }
-  console.log(`Welcom to the port ${port}`);
+  console.log(`Welcome to the port ${port}`);
 });
