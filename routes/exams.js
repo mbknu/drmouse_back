@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 		if (err) {
 			return res.status(500).json('Erreur lors de la récupération de tous les examens médicaux');
 		};
-		return res.sendStatus(200);
+		return res.status(200).json(result);
 		});
 });
 
@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
 		if (err) {
 			return res.status(500).json('Erreur lors de la récupération de l\'examen médical');
 		};
-		return res.sendStatus(200);
+		return res.status(200).json(result);
 		});
 });
 

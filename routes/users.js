@@ -29,7 +29,7 @@ router.get("/:id", (req, res) => {
 	});
   });
 
-  //Delete one user
+//Delete one user
 router.delete('/:id', (req, res) => {
 	let sql = 'DELETE FROM user WHERE id = ?'
 	const userId = req.params.id;
@@ -43,7 +43,7 @@ router.delete('/:id', (req, res) => {
 	});
   });
 
-  //Get all exam for one user
+// Get all exam for one user
 router.get("/:id/exam", (req, res) => {
 	const idExam = req.params.id;
 	let sql = 'SELECT * FROM user_has_exam AS ue JOIN user AS u ON ue.user_id = u.id JOIN exam AS e ON ue.exam_id = e.id WHERE u.id = ?'
@@ -55,7 +55,7 @@ router.get("/:id/exam", (req, res) => {
 		  });
 	  }
 	  else {
-		res.json({data: results});
+		return res.status(200).json({data: results});
 	  }
 	});
   });
@@ -77,6 +77,5 @@ router.get('/:idUser/exam/:idExam', (req, res) => {
 	  }
 	});
 });
-
 
 module.exports = router;
