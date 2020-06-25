@@ -29,6 +29,18 @@ router.get("/:id", (req, res) => {
 	});
   });
 
+// post one doctor
+router.post('/', (req, res) => {
+	const formBody = req.body;
+	db.query('INSERT INTO user SET ?', [formBody], (err, results) => {
+		if (err) {
+			return res.status(500).json('Erreur lors de la modification du patient');
+		};
+		return res.sendStatus(201);
+		});
+});
+
+
 //Delete one user
 router.delete('/:id', (req, res) => {
 	let sql = 'DELETE FROM user WHERE id = ?'
